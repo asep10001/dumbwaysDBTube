@@ -1,0 +1,212 @@
+<html lang="en">
+ <meta charset="utf-8">
+    <title>Tampilan Detail Video</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+{{!-- css styling --}}
+<style>
+h1.Video {
+    font-size: 300%;
+    text-align: center;
+    font-family: fantasy;
+}
+.Video a.btn.btn-sm.btn-info.edit {
+    width: 50%;
+    /* margin-right: 10%; */
+    /* margin-left: 10%; */
+    /* float: left; */
+    font-size: 2em;
+}
+.Video a.btn.btn-sm.btn-danger.delete {
+    width: 50%;
+    /* margin-right: 10%; */
+    /* margin-left: 10%; */
+    /* float: left; */
+    font-size: 2em;
+}
+
+a#kembali {
+    width: 50%;
+    /* margin-top: 20px; */
+    align-self: center;
+    /* margin-bottom: 20px; */
+    /* margin: 2% 38%; */
+    border: solid 2px green;
+    /* margin-right: 41%; */
+    font-size: 100%;
+    background: aquamarine;
+    text-align: center;
+}
+.card.col-sm-12 {
+    padding: 0;
+    margin: 0;
+    align-self: center;
+}
+.h1, h1 {
+    font-size: 3em;
+    text-align: center;
+    font-family: sans-serif;
+    font-family: cursive;
+    font-weight: 900;
+    color: coral;
+}
+
+#isi img {
+    width: 75%;
+    align-self: center;
+}
+
+
+div#isi {
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    padding: 2%;
+    margin-bottom: 4%;
+    height: auto;
+}
+
+div#isi.card.col-sm-5 {
+    margin: 0 3% 3% 0;
+}
+
+button.btn.btn-primary {
+    padding: 15px 40px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+iframe.Video {
+    width: auto;
+    height: auto;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+}
+
+</style>
+<body>
+<div class="container" id="content">
+      <div id="isi" class="card col-sm-12">
+        <h1 class="Video">{{results.[0].title}}</h1>
+
+        <iframe class="Video"
+        src="{{results.[0].url_video}}">
+        </iframe>
+
+        <div class="Video">
+          <a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-id="{{ results.[0].id }}" data-title="{{ results.[0].title }}" data-attache="{{ results.[0].attache }}" data-thumbnail="{{ results.[0].thumbnail }}" data-name="{{ results.[0].name }}" data-url_video="{{ results.[0].url_video }}">Edit</a>
+          <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ results.[0].id }} ">Delete</a>
+        </div>
+      </div>
+      <div class="card col-sm-12">
+        <a id="kembali" href="/">Kembali</a>
+      </div>
+    </div>
+</div>
+
+
+
+ <!-- Modal Update Video-->
+
+   <form action="/update" method="post">
+       <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Video</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="form-group">
+                   <input type="text" name="title" class="title form-control" placeholder="title Video" required>
+               </div>
+ 
+               <div class="form-group">
+                   <input type="text" name="attache" class="attache form-control" placeholder="attache" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="thumbnail" class="thumbnail form-control" placeholder="thumbnail" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="name" class="name form-control" placeholder="name" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="url_video" class="url_video form-control" placeholder="url_video" required>
+               </div>
+            </div>
+            <div class="modal-footer">
+              <input type="hidden" name="id" class="id form-control">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+       </div>
+  </form>
+
+     <!-- Modal Delete Video-->
+      <form id="add-row-form" action="/delete" method="post">
+         <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">Delete Video</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   </div>
+                   <div class="modal-body">
+                      <strong>Anda yakin mau menghapus Video ini?</strong>
+                   </div>
+                   <div class="modal-footer">
+                        <input type="hidden" name="id" class="form-control video_tb" required>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Delete</button>
+                   </div>
+                    </div>
+            </div>
+         </div>
+     </form>
+<script src="/assets/js/jquery-3.3.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script>
+    $(document).ready(function(){
+            //tampilkan data ke modal untuk edit
+      $('#content').on('click','.edit',function(){
+        var title = $(this).data('title');
+        var attache = $(this).data('attache');
+        var thumbnail = $(this).data('thumbnail');
+        var name = $(this).data('name');
+        var url_video = $(this).data('url_video');
+        var id = $(this).data('id');
+        $('#EditModal').modal('show');
+        $('.id').val(id);
+        $('.title').val(title);
+        $('.attache').val(attache);
+        $('.thumbnail').val(thumbnail);
+        $('.name').val(name);
+        $('.url_video').val(url_video);
+        $('.id').val(id);
+      });
+            //tampilkan modal hapus record
+            $('#content').on('click','.delete',function(){
+        var id = $(this).data('id');
+        $('#DeleteModal').modal('show');
+        $('.Video_tb').val(id);
+      });
+ 
+    });
+</script>
+</body>
