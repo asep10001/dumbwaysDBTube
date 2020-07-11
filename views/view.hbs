@@ -1,0 +1,303 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DWTube</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  {{!-- CSS STYLING --}}
+    <style>
+      .*{
+        margin:0px;
+        padding:0px;
+        background-color:#000000;
+      }
+      .container {
+            background-color: black;
+            width:100%;
+        }
+      p{
+            font-size: large;
+        font-weight: 600;
+        color: 00a4c9;
+      }
+
+        button#dropdownMenuButton {
+            width: auto;
+        }
+
+        .dropdown, .dropup {
+          width: auto;
+          margin: auto;
+          /* position: sticky; */
+          /* display: inline; */
+          text-align: center;
+        }
+      body {
+          background-color: #000000;
+      }
+      .header{
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        width: auto;
+
+      }
+      .btn:not(:disabled):not(.disabled) {
+          cursor: pointer;
+          background: #00b2d9;
+          color: #000;
+      }
+      .container img{
+    width: 75%;
+    /* float: left; */
+    align-self: center;
+
+      }
+      .navbar h1 {
+        font-size: xx-large;
+        font-weight: 900;
+        width: auto;
+        text-align: center;
+        margin: auto;
+      }
+    .card{
+      padding: 2%;
+      border: solid 2px #006f89;
+      background-color: #000;
+    }
+    .jawaban a {
+    font-size: 150%;
+    border: solid 2px red;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #00a4c9;
+    color: black;
+    }
+
+    button {
+          background-color: 00b2d9;
+          border-radius: 6px;
+          width: 100%;
+      }
+
+        #icon img {
+            width: 75px;
+            height: 50px;
+        }
+        img#gambar {
+            width: 25%;
+        }
+        p {
+            font-size: large;
+            font-weight: 600;
+        }
+
+        .card.col-sm {
+            border: none;
+            padding: 0;
+            margin: 2%;
+        }
+        
+        .card.col-sm-2 {
+            text-align: center;
+            margin: 4%;
+        }
+
+        a#tombol-kabupaten {
+          width: auto;
+          margin: auto;
+          /* position: sticky; */
+          /* display: inline; */
+          text-align: center;
+        }
+
+        a.navbar {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .card.col-sm-3 {
+            margin: 2% 4%;
+            text-align: center;
+            border: none;
+            padding: 0;
+        }
+
+        .h3, h3 {
+            font-size: 24px;
+            color: 00a4c9;
+            font-weight: 900;
+        }
+/* UNTUK MODAL */
+h5#exampleModalLabel {
+    font-size: 115%;
+    font-weight: bolder;
+    margin-right: 0;
+    float: left;;
+}
+
+button.close{
+  float:right;
+}
+
+input.form-control {
+    border: none;
+    border-bottom: solid 2px grey;
+    height: 7%;
+    width: 75%;
+    margin-left: 12%;
+
+}
+
+select.form-control {
+  border: none;
+    border-bottom: solid 2px grey;
+    height: 7%;
+    width: 75%;
+    margin-left: 12%;
+}
+
+select option{
+    height: 7%;
+    width: 75%;
+    margin-left: 12%;
+}
+
+.form-group {
+    margin: 0px;
+}
+
+.bg-light#atas {
+    background-color: black;
+}
+
+    </style>
+</head>
+<body>
+
+  <div class="container">
+    <a class="navbar" href="/">
+      <div class="container">
+      <h1>DWTube</h1>
+    </a>
+  </div>
+  
+
+    <div class="card col-sm">
+     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add Video</button>
+      </div>
+      <div class="card col-sm">
+     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd1">Add Category</button>
+     </div>
+
+     
+  </div>
+  <div class="container jawaban">
+    <div class="card col-sm-3">
+      <a href='/video_tb'>Jawaban untuk no 4 A</a>
+    </div>
+    <div class="card col-sm-3">
+      <a href='/videoAsCategory'>Jawaban untuk no 4 B</a>
+    </div>
+    <div class="card col-sm-3">
+      <a href='#'>Jawaban untuk no 4 c</a>
+    </div>
+  </div>
+  
+
+<div class="container">
+  <div class="row">
+          {{#each results}}
+    <div class="card col-sm-2">
+      <img src="{{ thumbnail }}">
+        <h3>{{ title }}</h3>
+        <p>Category | {{name}}</p>
+        <a href="/video/{{ id }}"><button>Detail</button></a>
+    </div>
+    
+    {{/each}}
+  </div>
+
+
+
+      <!-- Modal Add provinsi-->
+      <form action="/add_video" method="post">
+        <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Add Video</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">       
+               <div class="form-group">
+                   <input type="text" name="title" class="form-control" placeholder="The Video Title" required>
+               </div>
+ 
+               <div class="form-group">
+                   <input type="text" name="attache" class="form-control" placeholder="who is the attache" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="thumbnail" class="form-control" placeholder="url thumbnail" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="name" class="form-control" placeholder="genre" required>
+               </div>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary">Save</button>
+             </div>
+           </div>
+         </div>
+        </div>
+     </form>
+
+ <!-- Modal Add kabupaten-->
+      <form action="/add_category" method="post">
+        <div class="modal fade" id="myModalAdd1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">       
+               <div class="form-group">
+                   <input type="text" name="name" class="form-control" placeholder="the Category name" required>
+               </div>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary">Save</button>
+             </div>
+           </div>
+         </div>
+        </div>
+     </form>
+    <div class="card col-sm">        
+      <a id="tombol-category"class="btn btn-success" href="/all-category"><button class="btn">Lihat Seluruh Kategory</button></a>
+    </div> 
+  </div>
+  
+  
+ 
+<script src="/assets/js/jquery-3.3.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>
