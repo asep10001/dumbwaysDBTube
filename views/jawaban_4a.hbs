@@ -1,0 +1,189 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tampilan awal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  {{!-- CSS STYLING --}}
+    <style>
+      .*{
+        margin:0px;
+        padding:0px;
+      }
+      .header{
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        width: auto;
+
+      }
+      .container img{
+        width: 8%;
+        float: left;
+
+      }
+      .container button{
+      
+        float: right;
+        margin-top: 40px;
+        margin-right: 10%;
+        width: 15%;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 41px;
+        color: #FFFFFF;
+        background: #FADC9C;
+        border-radius: 10px;
+        border: none;
+      }
+
+      .container h1{
+          float: left;
+          font-weight: 900;
+          padding-left: 25%;
+      }
+        table{
+        
+          left: 104px;
+          top: 231px;
+        }
+
+        thead{
+        
+          background: #fe4e30;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+          border-radius: 20px 20px 0px 0px;
+
+          font-family: Airbnb Cereal App;
+          font-size: 30px;
+          line-height: 39px;
+          text-align: center;
+
+          color: #FFFFFF;
+        }
+
+        tbody{
+        
+          background: #FFFFFF;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+          border-radius: 0px 0px 20px 20px;
+          font-family: Airbnb Cereal App;
+          font-size: 30px;
+          line-height: 39px;
+
+          color: #000000;
+        }
+
+        #icon img {
+            width: 75px;
+            height: 50px;
+        }
+        img#gambar {
+            width: 25%;
+        }
+        p {
+            font-size: large;
+            font-weight: 600;
+        }
+{{!-- UNTUK MODAL --}}
+h5#exampleModalLabel {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-right: 25%;
+    float:left;
+}
+
+button.close{
+  float:right;
+}
+
+input.form-control {
+    border: none;
+    border-bottom: solid 2px grey;
+    height: 7%;
+    width: 75%;
+    margin-left: 12%;
+
+}
+
+select.form-control {
+  border: none;
+    border-bottom: solid 2px grey;
+    height: 7%;
+    width: 75%;
+    margin-left: 12%;
+}
+
+select option{
+    height: 7%;
+    width: 75%;
+    margin-left: 12%;
+}
+
+.form-group {
+    margin: 0px;
+}
+
+    </style>
+</head>
+<body>
+  <div class='container header'>
+      <img src='https://dumbways.id/assets/images/brandred.png'>
+      <div id='judul'>
+        <h1>TABLE VIDEO_TB</h1>
+      </div>
+  </div>
+  <div class="container">
+  
+    <table class="table" id="mytable">
+      <thead>
+        <tr id='table-hd'>
+          <th>no</th>
+          <th>title</th>
+          <th>category_id</th>
+          <th>attache</th>
+          <th>thumbnail</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+         {{#each results}}
+        <tr>
+          <td>{{ id }}</td>
+          <td>{{ title }}</td>
+          <td>{{ category_id }}</td>
+          <td>{{ attache }}</td>         
+          <td><img id="gambar" src="{{ thumbnail }}"></td>
+
+          <td id='icon'>
+              <a href="javascript:void(0);" data-id="{{ id }}" data-title="{{ title }}" data-category_id="{{ category_id }}" data-attache="{{ attache }}" data-thumbnail="{{ thumbnail }}"class = 'edit'><img src="https://images.squarespace-cdn.com/content/v1/5b197ae52714e55328e13e09/1528831440498-EIGLETS06R021L9JJC7C/ke17ZwdGBToddI8pDm48kHbkOJqghF7JPCfLUhtMPzBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxvJn9eApbFIpxP-4JKVFckMyI_etZnE1WUbY2mP4c-4OS9u90y_aBFy47gIloprcw/icon-edit.png"></a>
+              <a href="javascript:void(0);" class="btn btn-sm delete" data-id="{{ id}}"><img src="https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/33-512.png"></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <h3><em>Jawaban Pertanyaan</em></h3>
+    <p>Query yang digunakan adalah "SELECT * FROM vide_tb"</p>
+    <p>db yang di gunakan untuk menampilkan data table adalah:</p>
+    <p>app.get('/video_tb', (req, res) => {<br>
+        var sql = `SELECT * FROM video_tb`; <br>
+        var query = db.query(sql, (err, results) => {<br>
+          if (err) throw err;<br>
+          res.render('jawaban_4a', { results: results });<br>
+          console.log(results);
+        });
+      });</p>
+  </div>
+<a href="/"> kembali ke halaman pertama</a>
+ 
+ 
+<script src="/assets/js/jquery-3.3.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+
+</body>
+</html>
