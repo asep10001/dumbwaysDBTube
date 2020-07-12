@@ -101,6 +101,16 @@ app.post("/add_category", function(req, res) {
   });
 });
 
+//route untuk delete data provinsi
+app.post('/delete', (req, res) => {
+  let sql = `DELETE FROM tabel_hasil WHERE id=${req.body.id}`;
+  let query = db.query(sql, (err, results) => {
+    if (err) throw err;
+    res.redirect('/');
+  });
+});
+
+
 
 //server listening
 app.listen(8000, () => {

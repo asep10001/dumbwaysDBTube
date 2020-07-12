@@ -25,23 +25,12 @@
             background-color: black;
             width:100%;
         }
-      p{
-            font-size: large;
+    p{
+       font-size: large;
         font-weight: 600;
-        color: 00a4c9;
+        color: #fff;
       }
 
-        button#dropdownMenuButton {
-            width: auto;
-        }
-
-        .dropdown, .dropup {
-          width: auto;
-          margin: auto;
-          /* position: sticky; */
-          /* display: inline; */
-          text-align: center;
-        }
       body {
           background-color: #000000;
       }
@@ -50,13 +39,15 @@
         width: auto;
 
       }
-      .btn:not(:disabled):not(.disabled) {
-          cursor: pointer;
-          background: #00b2d9;
-          color: #000;
-      }
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    background: rgb(235, 78, 11);
+    color: #fff;
+    font-size: 75%;
+    font-weight: 900;
+}
       .container img{
-    width: 75%;
+    width: 100%;
     /* float: left; */
     align-self: center;
 
@@ -67,26 +58,36 @@
         width: auto;
         text-align: center;
         margin: auto;
+        color: #fff;
+      }
+      .navbar h1 span{
+        color: rgb(235, 78, 11);
       }
     .card{
-      padding: 2%;
-      border: solid 2px #006f89;
+      padding: 5%;
       background-color: #000;
     }
-    .jawaban a {
-    font-size: 150%;
-    border: solid 2px red;
-    margin-right: 20px;
-    padding: 20px;
-    background-color: #00a4c9;
-    color: black;
-    }
+
+.jawaban a {
+    font-size: 75%;
+    border: none;
+    /* margin-right: 0; */
+    padding: 10px;
+    background-color: #bfa717c2;
+    color: #fff;
+    width: 50%;
+    border-radius: 10px;
+}
 
     button {
-          background-color: 00b2d9;
-          border-radius: 6px;
-          width: 100%;
-      }
+        background-color: #da0101;
+        border-radius: 6px;
+        /* width: 100%; */
+        /* margin: auto; */
+        /* align-items: center; */
+        color: #fff;
+        font-weight: bolder;
+    }
 
         #icon img {
             width: 75px;
@@ -96,15 +97,17 @@
             width: 25%;
         }
         p {
-            font-size: large;
+            font-size: 10px;
             font-weight: 600;
         }
 
-        .card.col-sm {
-            border: none;
-            padding: 0;
-            margin: 2%;
-        }
+    .card.col-sm {
+        border: none;
+        padding: 0;
+        margin: 2%;
+        float: right;
+        width: auto;
+    }
         
         .card.col-sm-2 {
             text-align: center;
@@ -119,24 +122,29 @@
           text-align: center;
         }
 
-        a.navbar {
-            padding: 0;
-            margin: 0;
-            width: 100%;
-        }
+      a.navbar {
+          padding: 0;
+          margin: 0;
+          /* width: 100%; */
+          float: left;
+      } 
 
-        .card.col-sm-3 {
-            margin: 2% 4%;
-            text-align: center;
-            border: none;
-            padding: 0;
-        }
+.card.col-sm-3 {
+    margin: 20px 0;
+    align-self: center;
+    text-align: center;
+    border: none;
+    padding: 0;
+    justify-content: center;
+}
 
-        .h3, h3 {
-            font-size: 24px;
-            color: 00a4c9;
-            font-weight: 900;
-        }
+.h3, h3 {
+    font-size: 90%;
+    color: #fff;
+    font-weight: 900;
+    padding: 0;
+    margin: 5% 0;
+}
 /* UNTUK MODAL */
 h5#exampleModalLabel {
     font-size: 115%;
@@ -180,6 +188,21 @@ select option{
     background-color: black;
 }
 
+a {
+    color: #337ab7;
+    text-decoration: none;
+    align-items: center;
+    margin: auto;
+}
+
+.card.col-sm.all-categories {
+    float: none;
+    /* width: 100%; */
+    /* position: static; */
+}
+
+
+
     </style>
 </head>
 <body>
@@ -187,32 +210,36 @@ select option{
   <div class="container">
     <a class="navbar" href="/">
       <div class="container">
-      <h1>DWTube</h1>
+      <h1>DW<span>Tube</span></h1>
     </a>
-  </div>
-  
+
 
     <div class="card col-sm">
      <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add Video</button>
       </div>
       <div class="card col-sm">
      <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd1">Add Category</button>
-     </div>
-
-     
+    </div>
   </div>
-  <div class="container jawaban">
-    <div class="card col-sm-3">
+  
+  <div class="container jawaban col-sm-12">
+    <div class="card">
       <a href='/video_tb'>Jawaban untuk no 4 A</a>
     </div>
-    <div class="card col-sm-3">
+    <div class="card">
       <a href='/videoAsCategory'>Jawaban untuk no 4 B</a>
     </div>
-    <div class="card col-sm-3">
+    <div class="card">
       <a href='#'>Jawaban untuk no 4 c</a>
     </div>
   </div>
   
+  </div>
+
+
+
+     
+
 
 <div class="container">
   <div class="row">
@@ -221,7 +248,7 @@ select option{
       <img src="{{ thumbnail }}">
         <h3>{{ title }}</h3>
         <p>Category | {{name}}</p>
-        <a href="/video/{{ id }}"><button>Detail</button></a>
+        <a href="/video/{{ id }}"><button>Play</button></a>
     </div>
     
     {{/each}}
@@ -291,8 +318,8 @@ select option{
          </div>
         </div>
      </form>
-    <div class="card col-sm">        
-      <a id="tombol-category"class="btn btn-success" href="/category"><button class="btn">All Categories</button></a>
+    <div class="card col-sm all-categories">        
+      <a id="tombol-category"class="btn btn-success" href="/category"><button class="btn ">All Categories</button></a>
     </div> 
   </div>
   

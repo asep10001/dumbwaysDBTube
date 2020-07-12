@@ -137,7 +137,7 @@ select option{
         <h1>KATEGORI YANG TERSEDIA</h1>
       </div>
   </div>
-  <div class="container">
+  <div class="container" ">
   
     <table class="table" id="mytable">
       <thead>
@@ -153,9 +153,9 @@ select option{
           <td>{{ id }}</td>
           <td>{{ name }}</td>       
 
-          <td id='icon'>
-              <a href="javascript:void(0);" data-id="{{ id }}"  data-name="{{ name }}"class = 'edit'><img src="https://images.squarespace-cdn.com/content/v1/5b197ae52714e55328e13e09/1528831440498-EIGLETS06R021L9JJC7C/ke17ZwdGBToddI8pDm48kHbkOJqghF7JPCfLUhtMPzBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxvJn9eApbFIpxP-4JKVFckMyI_etZnE1WUbY2mP4c-4OS9u90y_aBFy47gIloprcw/icon-edit.png"></a>
-              <a href="javascript:void(0);" class="btn btn-sm delete" data-id="{{ id}}"><img src="https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/33-512.png"></a>
+          <td id='icon' id="content">
+              <a href="javascript:void(0);" data-id="{{ id }}"  data-name="{{ name }}"class = 'edit'><img src="https://images.squarespace-cdn.com/content/v1/5b197ae52714e55328e13e09/1528831440498-EIGLETS06R021L9JJC7C/ke17ZwdGBToddI8pDm48kHbkOJqghF7JPCfLUhtMPzBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxvJn9eApbFIpxP-4JKVFckMyI_etZnE1WUbY2mP4c-4OS9u90y_aBFy47gIloprcw/icon-edit.png" class="edit"></a>
+              <a href="javascript:void(0);" class="btn btn-sm delete" data-id="{{id}}"><img src="https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/33-512.png"></a>
           </td>
         </tr>
         {{/each}}
@@ -174,6 +174,84 @@ select option{
 </p>
   </div>
 <a href="/"> kembali ke halaman pertama</a>
+
+
+
+
+ <!-- Modal Update Video-->
+
+   <form action="/update" method="post">
+       <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Category<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="form-group">
+                   <input type="text" name="name" class="name form-control" placeholder="name of the category" required>
+               </div>
+            </div>
+            <div class="modal-footer">
+              <input type="hidden" name="id" class="id form-control">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+       </div>
+  </form>
+
+     <!-- Modal Delete Video-->
+      <form id="add-row-form" action="/delete" method="post">
+         <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">Delete This Category</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   </div>
+                   <div class="modal-body">
+                      <strong>Are you sure to delete this category?</strong>
+                   </div>
+                   <div class="modal-footer">
+                        <input type="hidden" name="id" class="form-control category_tb" required>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Delete</button>
+                   </div>
+                    </div>
+            </div>
+         </div>
+     </form>
+<script src="/assets/js/jquery-3.3.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script>
+    $(document).ready(function(){
+            //tampilkan data ke modal untuk edit
+      $('#content').on('click','.edit',function(){
+//         var title = $(this).data('title');
+//         var attache = $(this).data('attache');
+//         var thumbnail = $(this).data('thumbnail');
+        var name = $(this).data('name');
+        var id = $(this).data('id');
+        $('#EditModal').modal('show');
+        $('.id').val(id);
+//         $('.title').val(title);
+//         $('.attache').val(attache);
+//         $('.thumbnail').val(thumbnail);
+        $('.name').val(name);
+//         $('.url_video').val(url_video);
+//         $('.id').val(id);
+      });
+            //tampilkan modal hapus record
+            $('#content').on('click','.delete',function(){
+        var id = $(this).data('id');
+        $('#DeleteModal').modal('show');
+        $('.Video_tb').val(id);
+      });
+ 
  
  
 <script src="/assets/js/jquery-3.3.1.js"></script>
