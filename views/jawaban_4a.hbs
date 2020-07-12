@@ -168,17 +168,18 @@ select option{
       </tbody>
     </table>
     <h3><em>Jawaban Pertanyaan</em></h3>
-    <p>Pertama saya membuat tabel baru dari hasil join dua tabel yakni tabel_hasil dengan QUERY<br> `CREATE TABLE NmMApBVao4.tabel_hasil AS
-(SELECT video_tb.title, video_tb.attache, video_tb.thumbnail, video_tb.id AS id, category_tb.name AS name FROM video_tb JOIN category_tb ON category_tb.id = video_tb.category_id)` </p>
-    <p>Query yang digunakan adalah `SELECT * FROM tabel_hasil `</p>
+    <p>Pertama saya membuat tabel baru dari hasil join dua tabel yakni tabel_hasil dengan QUERY<br>
+    <p>SELECT video_tb.id as id, video_tb.title as title, <br>video_tb.attache as attache, video_tb.thumbnail as thumbnail, <br>category_tb.name FROM video_tb INNER JOIN category_tb ON<br> category_tb.id = video_tb.category_id;<br></p>
     <p>db yang di gunakan untuk menampilkan data table adalah:</p>
-    <p>app.get('/video_tb', (req, res) => {var sql = `SELECT *<br> FROM tabel_hasil`;<br>
+    <p>app.get('/video_tb', (req, res) => {<br>
+
+  var sql = `SELECT video_tb.id as id, video_tb.title as title, <br>video_tb.attache as attache, video_tb.thumbnail as thumbnail, <br>category_tb.name FROM video_tb INNER JOIN category_tb ON<br> category_tb.id = video_tb.category_id`;<br>
   var query = db.query(sql, (err, results) => {<br>
     if (err) throw err;<br>
     res.render('jawaban_4a', { results: results });<br>
     console.log(results);<br>
-  });
-});
+  });<br>
+});<br>
 </p>
   </div>
 <a href="/"> kembali ke halaman pertama</a>
