@@ -23,6 +23,10 @@ terdapat tombol fullscreen di pojok kanan atas pada layar window untuk memaksima
 
 <br> https://repl.it/@AsepAgus/dumbwaysDBTube<br> <br>
 
+<p>untuk melihat keseluruhan page dan responsiveness bisa menggunakan link ini</p>
+
+<h2>https://dumbwaysdbtube.asepagus.repl.co/</h2>
+
 
 ====================STACK===================<br>
 saya menggunakan stack MEN (MySQL Express Node) untuk menjawab no 4<br>
