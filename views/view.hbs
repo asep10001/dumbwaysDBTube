@@ -50,7 +50,7 @@
     width: 100%;
     /* float: left; */
     align-self: center;
-    border-radius: 3px;
+    border-radius: 2px;
 
       }
       .navbar h1 {
@@ -216,7 +216,7 @@ a {
 
 
     <div class="card col-sm">
-     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add Video</button>
+     <button id="add-video"class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add Video</button>
       </div>
       <div class="card col-sm">
      <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd1">Add Category</button>
@@ -268,22 +268,22 @@ a {
                  <span aria-hidden="true">&times;</span>
                </button>
              </div>
-             <div class="modal-body">       
+             <div class="modal-body">
+  <div>
+    <h4>Before You Add the Video Please look At the ALL CATEGORIES BUTTON to see the category_id available to add</h4>
+  </div>       
                <div class="form-group">
                    <input type="text" name="title" class="form-control" placeholder="The Video Title" required>
                </div>
  
                <div class="form-group">
-                   <input type="text" name="attache" class="form-control" placeholder="who is the attache" required>
+                   <input type="text" name="attache" class="form-control" placeholder="insert the attache" required>
                </div>
                <div class="form-group">
                    <input type="text" name="thumbnail" class="form-control" placeholder="url thumbnail" required>
                </div>
                <div class="form-group">
-                   <input type="text" name="name" class="form-control" placeholder="genre" required>
-               </div>
-               <div class="form-group">
-                   <input type="text" name="url_video" class="form-control" placeholder="video url" required>
+                   <input type="text" name="category_id" class="form-control" placeholder="category_id" required>
                </div>
              </div>
              <div class="modal-footer">
@@ -310,6 +310,9 @@ a {
                <div class="form-group">
                    <input type="text" name="name" class="form-control" placeholder="the Category name" required>
                </div>
+               <div class="form-group">
+                   <input type="text" name="category_id" class="form-control" placeholder="set the category_id with number " required>
+               </div>
              </div>
              <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -328,6 +331,13 @@ a {
  
 <script src="/assets/js/jquery-3.3.1.js"></script>
 <script src="/assets/js/bootstrap.js"></script>
+
+<script>
+
+$('#add-video').on('click', function{
+  alert('Before You Add the Video Please look At the ALL CATEGORIES BUTTON to see the category_id available to add')
+})
+</script>
 
 
 </body>

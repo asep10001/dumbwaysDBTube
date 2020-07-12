@@ -168,12 +168,12 @@ select option{
       </tbody>
     </table>
     <h3><em>Jawaban Pertanyaan</em></h3>
-    <p>Query yang digunakan adalah `SELECT *, video_tb.id AS id, category_tb.name AS name FROM video_tb JOIN category_tb ON category_tb.id = video_tb.category_id`</p>
+    <p>Query yang digunakan adalah `SELECT * FROM tabel_hasil WHERE name = 'Horror'`</p>
     <p>db yang di gunakan untuk menampilkan data table adalah:</p>
-    <p>app.get('/video_tb', (req, res) => {var sql = `SELECT *,<br> video_tb.id AS id, category_tb.name AS name FROM video_tb JOIN <br>category_tb ON category_tb.id = video_tb.category_id`;<br>
+    <p>app.get('/videoAsCategory', (req, res) => {var sql = `SELECT *,<br> * FROM tabel_hasil WHERE <br>name ='Horror'`;<br>
   var query = db.query(sql, (err, results) => {<br>
     if (err) throw err;<br>
-    res.render('jawaban_4a', { results: results });<br>
+    res.render('jawaban_4b', { results: results });<br>
     console.log(results);<br>
   });
 });

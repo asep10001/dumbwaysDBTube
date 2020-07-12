@@ -102,7 +102,7 @@ iframe.Video {
         <h1 class="Video">{{results.[0].title}}</h1>
 
         <iframe class="Video"
-        src="{{results.[0].url_video}}">
+        src="{{results.[0].attache}}">
         </iframe>
 
         <div class="Video">
@@ -140,12 +140,9 @@ iframe.Video {
                </div>
                <div class="form-group">
                    <input type="text" name="thumbnail" class="thumbnail form-control" placeholder="thumbnail" required>
-               </div>
-               <div class="form-group">
-                   <input type="text" name="name" class="name form-control" placeholder="name" required>
-               </div>
-               <div class="form-group">
-                   <input type="text" name="url_video" class="url_video form-control" placeholder="url_video" required>
+               </div>              
+              <div class="form-group">
+                   <input type="text" name="category_id" class="category_id form-control" placeholder="category_id" required>
                </div>
             </div>
             <div class="modal-footer">
@@ -168,7 +165,7 @@ iframe.Video {
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                    </div>
                    <div class="modal-body">
-                      <strong>Anda yakin mau menghapus Video ini?</strong>
+                      <strong>Are you sure to delete this video?</strong>
                    </div>
                    <div class="modal-footer">
                         <input type="hidden" name="id" class="form-control video_tb" required>
@@ -189,7 +186,7 @@ iframe.Video {
         var attache = $(this).data('attache');
         var thumbnail = $(this).data('thumbnail');
         var name = $(this).data('name');
-        var url_video = $(this).data('url_video');
+        var category_id= $(this).data('category_id');
         var id = $(this).data('id');
         $('#EditModal').modal('show');
         $('.id').val(id);
@@ -197,7 +194,7 @@ iframe.Video {
         $('.attache').val(attache);
         $('.thumbnail').val(thumbnail);
         $('.name').val(name);
-        $('.url_video').val(url_video);
+        $('.category_id').val(category_id);
         $('.id').val(id);
       });
             //tampilkan modal hapus record

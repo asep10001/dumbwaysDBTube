@@ -2,8 +2,14 @@
 <head>
     <meta charset="utf-8">
     <title>Jawaban 4a</title>
-    <meta charset="utf-8">
+        <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -79,7 +85,7 @@
         }
 
         #icon img {
-            width: 75px;
+            width: 20%;
             height: 50px;
         }
         img#gambar {
@@ -150,12 +156,12 @@ select option{
       <tbody>
          {{#each results}}
         <tr>
-          <td>{{ id }}</td>
+          <td>{{ no }}</td>
           <td>{{ name }}</td>       
 
-          <td id='icon' id="content">
+          <td class="category" id="icon">
               <a href="javascript:void(0);" data-id="{{ id }}"  data-name="{{ name }}"class = 'edit'><img src="https://images.squarespace-cdn.com/content/v1/5b197ae52714e55328e13e09/1528831440498-EIGLETS06R021L9JJC7C/ke17ZwdGBToddI8pDm48kHbkOJqghF7JPCfLUhtMPzBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxvJn9eApbFIpxP-4JKVFckMyI_etZnE1WUbY2mP4c-4OS9u90y_aBFy47gIloprcw/icon-edit.png" class="edit"></a>
-              <a href="javascript:void(0);" class="btn btn-sm delete" data-id="{{id}}"><img src="https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/33-512.png"></a>
+              <a href="javascript:void(0);" class="btn btn-sm delete" data-id="{{id}}">Delete</a>
           </td>
         </tr>
         {{/each}}
@@ -180,7 +186,7 @@ select option{
 
  <!-- Modal Update Video-->
 
-   <form action="/update" method="post">
+   <form action="/update-category" method="post">
        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -205,7 +211,7 @@ select option{
   </form>
 
      <!-- Modal Delete Video-->
-      <form id="add-row-form" action="/delete" method="post">
+      <form id="add-row-form" action="/delete-category" method="post">
          <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                <div class="modal-content">
@@ -228,9 +234,8 @@ select option{
 <script src="/assets/js/jquery-3.3.1.js"></script>
 <script src="/assets/js/bootstrap.js"></script>
 <script>
-    $(document).ready(function(){
             //tampilkan data ke modal untuk edit
-      $('#content').on('click','.edit',function(){
+      $('td').on('click','.edit',function(){
 //         var title = $(this).data('title');
 //         var attache = $(this).data('attache');
 //         var thumbnail = $(this).data('thumbnail');
@@ -244,18 +249,17 @@ select option{
         $('.name').val(name);
 //         $('.url_video').val(url_video);
 //         $('.id').val(id);
+
       });
             //tampilkan modal hapus record
-            $('#content').on('click','.delete',function(){
+            $('td').on('click','.delete',function(){
         var id = $(this).data('id');
         $('#DeleteModal').modal('show');
-        $('.Video_tb').val(id);
+        $('.category_tb').val(id);
       });
+
+ </script>
  
- 
- 
-<script src="/assets/js/jquery-3.3.1.js"></script>
-<script src="/assets/js/bootstrap.js"></script>
 
 </body>
 </html>
