@@ -168,18 +168,20 @@ select option{
       </tbody>
     </table>
     <h3><em>Jawaban Pertanyaan</em></h3>
-    <p>Query yang digunakan adalah `SELECT * FROM tabel_hasil WHERE name = 'Horror'`</p>
+    <p>Query yang digunakan adalah SELECT video_tb.id as id, video_tb.title as title, <br>video_tb.attache as attache, video_tb.thumbnail as thumbnail, <br>category_tb.name FROM video_tb INNER JOIN category_tb ON <br>category_tb.id = video_tb.category_id WHERE name = "horror"</p>
     <p>db yang di gunakan untuk menampilkan data table adalah:</p>
-    <p>app.get('/videoAsCategory', (req, res) => {var sql = `SELECT *,<br> * FROM tabel_hasil WHERE <br>name ='Horror'`;<br>
+    <p>app.get('/videoAsCategory', (req, res) => {<br>
+      <br>  
+  var sql = `SELECT video_tb.id as id, video_tb.title as title, <br>video_tb.attache as attache, video_tb.thumbnail as thumbnail, <br>category_tb.name FROM video_tb INNER JOIN category_tb ON <br>category_tb.id = video_tb.category_id WHERE name = "horror"`;<br>
   var query = db.query(sql, (err, results) => {<br>
     if (err) throw err;<br>
     res.render('jawaban_4b', { results: results });<br>
     console.log(results);<br>
-  });
-});
+  });<br>
+});<br>
 </p>
+  <button class="back btn btn-primary"><a href="/"> BACK</a></button>
   </div>
-<a href="/"> kembali ke halaman pertama</a>
  
  
 <script src="/assets/js/jquery-3.3.1.js"></script>
